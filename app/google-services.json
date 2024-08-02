@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "5775816899",
+    "project_id": "whatsapp-a84cd",
+    "storage_bucket": "whatsapp-a84cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5775816899:android:f0ae23262f38d5b929ca76",
+        "android_client_info": {
+          "package_name": "com.vinilazzeri.whatsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQdoo2WM4EN7olhOZOacKe96FSxPR_vNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
