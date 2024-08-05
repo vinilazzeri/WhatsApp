@@ -8,6 +8,12 @@ import com.squareup.picasso.Picasso
 import com.vinilazzeri.whatsapp.databinding.ChatsItemBinding
 import com.vinilazzeri.whatsapp.model.Chat
 
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
+import java.util.TimeZone
+
+
 class ChatsAdapter (
     private val onClick : (Chat) -> Unit
 ) : Adapter<ChatsAdapter.ChatsViewHolder>() {
@@ -20,21 +26,60 @@ class ChatsAdapter (
 
     inner class ChatsViewHolder(
         private val binding: ChatsItemBinding
-    ): RecyclerView.ViewHolder(binding.root){
-        fun bind(chat: Chat){
+    ) : RecyclerView.ViewHolder(binding.root) {
 
+        fun bind(chat: Chat) {
             binding.textChatUsername.text = chat.name
             binding.textLastMessage.text = chat.lastMessage
+            val chatDate = chat.date
+
+            if (chatDate != null) {
+                val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault()).apply {
+                    timeZone = TimeZone.getTimeZone("GMT-4")
+                }
+
+                val dayFormat = SimpleDateFormat("EEEE", Locale.getDefault())
+
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+                val currentCalendar = Calendar.getInstance().apply {
+                    timeZone = TimeZone.getTimeZone("GMT-4")
+                }
+
+                val chatCalendar = Calendar.getInstance().apply {
+                    time = chatDate
+                    timeZone = TimeZone.getTimeZone("GMT-4")
+                }
+
+                val daysDifference = (currentCalendar.timeInMillis - chatCalendar.timeInMillis) / (1000 * 60 * 60 * 24)
+
+                val chatTimeText = when {
+                    daysDifference == 0L -> {
+                        timeFormat.format(chatDate)
+                    }
+                    daysDifference == 1L -> {
+                        "Yesterday"
+                    }
+                    daysDifference < 7L -> {
+                        dayFormat.format(chatDate)
+                    }
+                    else -> {
+                        dateFormat.format(chatDate)
+                    }
+                }
+
+                binding.textTime.text = chatTimeText
+            } else {
+                binding.textTime.text = "No Date"
+            }
 
             Picasso.get()
-                .load( chat.photo )
-                .into( binding.profileImgsChats )
+                .load(chat.photo)
+                .into(binding.profileImgsChats)
 
-            //eventos de clique
             binding.clChatsItem.setOnClickListener {
                 onClick(chat)
             }
-
         }
     }
 

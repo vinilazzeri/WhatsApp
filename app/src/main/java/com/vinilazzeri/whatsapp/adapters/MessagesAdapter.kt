@@ -10,6 +10,10 @@ import com.vinilazzeri.whatsapp.databinding.RecipientUserItemMessagesBinding
 import com.vinilazzeri.whatsapp.model.Messages
 import com.vinilazzeri.whatsapp.utils.Constants
 
+import java.text.SimpleDateFormat
+import java.util.Locale
+import java.util.TimeZone
+
 class MessagesAdapter : Adapter<ViewHolder>(){
 
     private var chatMessagesList = emptyList<Messages>()
@@ -18,42 +22,61 @@ class MessagesAdapter : Adapter<ViewHolder>(){
         notifyDataSetChanged()
     }
 
-    class CurrentUserChatViewHolder( //viewholder
+    class CurrentUserChatViewHolder(
         private val binding: CurrentUserItemMessagesBinding
-    ): ViewHolder(binding.root){
+    ) : ViewHolder(binding.root) {
 
-        fun bind(message: Messages){
+        fun bind(message: Messages) {
             binding.textCurrentUserChat.text = message.messageContent
+
+            // Verifique se a data não é nula antes de formatá-la
+            val timestamp = message.date
+            if (timestamp != null) {
+                val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault()).apply {
+                    timeZone = TimeZone.getTimeZone("GMT-4")
+                }
+                binding.textCurrentUserTime.text = timeFormat.format(timestamp)
+            } else {
+                binding.textCurrentUserTime.text = "No Time"
+            }
         }
 
-        companion object{
-            fun layoutInflater(parent: ViewGroup): CurrentUserChatViewHolder{
+        companion object {
+            fun layoutInflater(parent: ViewGroup): CurrentUserChatViewHolder {
                 val inflater = LayoutInflater.from(parent.context)
                 val itemView = CurrentUserItemMessagesBinding.inflate(
                     inflater, parent, false
                 )
-
                 return CurrentUserChatViewHolder(itemView)
             }
         }
-
     }
 
-    class RecipientUserChatViewHolder( //viewholder
+    class RecipientUserChatViewHolder(
         private val binding: RecipientUserItemMessagesBinding
-    ): ViewHolder(binding.root){
+    ) : ViewHolder(binding.root) {
 
-        fun bind(message: Messages){
+        fun bind(message: Messages) {
             binding.textRecipientUserChat.text = message.messageContent
+
+            // Verifique se a data não é nula antes de formatá-la
+            val timestamp = message.date
+            if (timestamp != null) {
+                val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault()).apply {
+                    timeZone = TimeZone.getTimeZone("GMT-4")
+                }
+                binding.textRecipientUserTime.text = timeFormat.format(timestamp)
+            } else {
+                binding.textRecipientUserTime.text = "No Time"
+            }
         }
 
-        companion object{
-            fun layoutInflater(parent: ViewGroup): RecipientUserChatViewHolder{
+        companion object {
+            fun layoutInflater(parent: ViewGroup): RecipientUserChatViewHolder {
                 val inflater = LayoutInflater.from(parent.context)
                 val itemView = RecipientUserItemMessagesBinding.inflate(
                     inflater, parent, false
                 )
-
                 return RecipientUserChatViewHolder(itemView)
             }
         }
