@@ -1,8 +1,12 @@
 
-# WhatsApp com Firebase!
+# WhatsApp com Firebase! :t-rex:
+![image](https://github.com/user-attachments/assets/63b33c4d-961d-4dbd-844f-4711498266e1) ![image](https://github.com/user-attachments/assets/540d23aa-dc4c-4a07-a2ed-0b88c2945362)
+
 Este aplicativo de mensagens para Android foi desenvolvido em Kotlin e utiliza Firebase para integrar funcionalidades essenciais de um app de mensagens. Com o objetivo de simular as funcionalidades básicas do WhatsApp, o aplicativo permite interação em tempo real entre usuários e oferece armazenamento e gerenciamento de dados usando os serviços do Firebase. Este projeto demonstra minhas habilidades em desenvolvimento mobile, o uso de bibliotecas modernas e a aplicação de boas práticas de programação, servindo como um meio para exercitar os estudos e consolidar meu aprendizado.
 
-## Funcionalidades Principais
+## Funcionalidades Principais :robot:
+![image](https://github.com/user-attachments/assets/e386a7a4-8922-4562-a1e0-4c44798b7262) ![image](https://github.com/user-attachments/assets/672d79dc-b967-423a-a095-758eac589ac8)
+
 - **Autenticação de Usuário:** Integração com Firebase Authentication para registro, login e gerenciamento de sessões de usuário de forma segura.
 - **Perfil de Usuário:** Atualização de informações de perfil, incluindo upload de foto usando Firebase Storage.
 - **Envio de Mensagens:** Funcionalidade de chat em tempo real que permite aos usuários enviar e receber mensagens instantaneamente.
@@ -10,7 +14,7 @@ Este aplicativo de mensagens para Android foi desenvolvido em Kotlin e utiliza F
 - **Listagem de Contatos:** Visualização de contatos disponíveis no aplicativo com informações atualizadas." em ingles
 
 
-## Estrutura e Organização da Arquitetura
+## Estrutura e Organização da Arquitetura :whale:
 O projeto utiliza a arquitetura MVVM (Model-View-ViewModel), que é amplamente adotada em aplicativos Android modernos. Esta arquitetura permite uma clara separação de responsabilidades, o que facilita a manutenção e o escalonamento do projeto. Veja como cada parte é organizada:
 
 - **Model:** Representa a lógica de dados do aplicativo. Esta camada inclui classes que definem a estrutura de dados e o gerenciamento das operações de dados usando Firebase Firestore, garantindo que os dados do usuário e as mensagens sejam armazenados de forma eficiente e segura.
@@ -20,7 +24,7 @@ O projeto utiliza a arquitetura MVVM (Model-View-ViewModel), que é amplamente a
 - **ViewModel:** Esta camada gerencia a lógica de apresentação e atua como um intermediário entre o Model e a View. O ViewModel utiliza LiveData para expor dados à View, garantindo que qualquer atualização seja refletida na interface do usuário sem a necessidade de manipulação direta de UI nas Activities ou Fragments.
 
 
-## Estrutura do Código
+## Estrutura do Código :heart:
 O projeto está organizado em diversos pacotes para manter a clareza e modularidade:
 
 - **Activities:** Contém as telas principais do aplicativo, incluindo telas de login, registro, e a principal tela de chat.
@@ -42,10 +46,11 @@ O projeto está organizado em diversos pacotes para manter a clareza e modularid
 - **Values:** A pasta values armazena definições de cores customizadas usadas em todo o aplicativo, garantindo consistência visual e facilitando a manutenção das cores da interface.
 
 - **Themes:** A pasta themes contém definições de estilos para a aplicação, incluindo a personalização de botões e a configuração do tema base, proporcionando uma aparência coesa e adaptável ao aplicativo.
-## Tecnologias e Ferramentas
+## Tecnologias e Ferramentas :sauropod:
+![image](https://github.com/user-attachments/assets/de59f40b-6b29-4d72-8b55-33b1ca774d0f)
 
 - **Linguagem:** Kotlin, essencial para desenvolvimento Android moderno.
-
+ 
 - **Firebase:** Firebase Authentication para gestão de usuários; Firestore como banco de dados NoSQL para armazenamento e recuperação de dados; Storage para armazenamento de fotos de perfil e outros arquivos.
 
 - **Picasso:** Biblioteca para carregamento e caching de imagens de forma eficiente.
@@ -54,7 +59,8 @@ O projeto está organizado em diversos pacotes para manter a clareza e modularid
 
 - **Kotlin Coroutines:** Para gerenciamento de threads assíncronas e simplificação do código que lida com operações em segundo plano.
 
-## Boas Práticas e Fundamentos Aplicados
+## Boas Práticas e Fundamentos Aplicados :potted_plant:
+
 Neste projeto, várias boas práticas foram aplicadas para garantir um código limpo, eficiente e escalável:
 
 - **Arquitetura MVVM:** Separação de lógica de negócios e apresentação, facilitando a manutenção e a testabilidade do código.
@@ -70,7 +76,7 @@ Neste projeto, várias boas práticas foram aplicadas para garantir um código l
 - **Teste de Unidade e Integração:** Implementação de testes para garantir a qualidade e funcionalidade do código.
 
 
-## Aprendizados
+## Aprendizados :thought_balloon:
 
 O que você aprendeu construindo esse projeto?
 Este projeto me permitiu aprofundar meu entendimento sobre o ciclo de vida das Activities e Fragments, aprimorando minha habilidade de gerenciar estados e transições dentro da aplicação. Aprendi a manipular e obter dados do Firebase de forma mais eficiente, consolidando meus conhecimentos na integração com serviços de backend. Também melhorei minha capacidade de interpretação do Logcat, o que é crucial para a depuração e resolução de problemas. Além disso, reconheci a importância de utilizar constantes em projetos maiores para manter o código organizado e reduzir a propensão a erros.
